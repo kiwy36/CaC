@@ -1,0 +1,51 @@
+body {
+    background-color: aquamarine;
+    margin: 0;
+    padding: 0;
+}
+.titlePage{
+    text-align: center;
+    font-size: 5rem;
+    padding: 20px 0;
+}
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.image {
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    min-width: 30%;
+    max-width: 30%;
+    min-height: 150px;
+    max-width: 150px;
+}
+
+.image img {
+    width: 100%;
+    min-width: 100px;
+    height: auto;
+    max-height: 500px;
+    margin: auto;
+}
+
+.caption {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+}
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
