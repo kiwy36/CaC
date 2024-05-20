@@ -1,48 +1,98 @@
+/* Estilos base */
 body {
-    background-color: aquamarine;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
-.titlePage{
-    text-align: center;
-    font-size: 5rem;
-    padding: 20px 0;
-}
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
     padding: 20px;
 }
-
-.image {
-    margin: 10px;
-    border: 2px solid black;
-    border-radius: 5px;
-    min-width: 30%;
-    min-height: 200px;
-}
-
-.image img {
-    width: 100%;
-    min-width: 100%;
-    height: auto;
-    min-height: 200px
-}
-
-.caption {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+.title-carrito{
     text-align: center;
+    font-size: 5rem;
+}
+/* Estilos para el carrito de compras */
+#carrito-items {
+    grid-column: 1 / 2; /* Ocupa la primera fracción */
+}
+
+#cart-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.cart-item {
+    width: calc(50% - 10px); /* 50% menos el espacio entre los elementos */
+    border: 1px solid #ccc;
     padding: 10px;
-    font-size: 14px;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
 }
-footer {
-    background-color: black;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    bottom: 0;
-    left: 0;
+
+.cart-item img {
     width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.details {
+    text-align: center;
+}
+
+#total-price {
+    text-align: center;
+}
+
+/* Estilos para el formulario */
+#formulario-items {
+    grid-column: 2 / 3; /* Ocupa la segunda fracción */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+input, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+#form-messages {
+    color: red;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    #carrito-items, #formulario-items {
+        grid-column: auto; /* Revertir a la disposición automática en pantallas pequeñas */
+    }
+
+    .cart-item {
+        width: 100%; /* Ajustar ítems del carrito al ancho completo en pantallas pequeñas */
+    }
 }

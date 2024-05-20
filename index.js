@@ -115,7 +115,6 @@ function addToCart(image, price, quantity) {
     console.log('Cantidad:', quantity);
     // Aquí puedes agregar la lógica para agregar el producto al carrito
 }
-
 document.addEventListener("DOMContentLoaded", function () {
     const gallery = document.querySelector('.gallery');
 
@@ -129,9 +128,6 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="details">
                 <p>Precio: ${producto.precio} Kiwy Pesos</p>
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="cantidadDropdown${index}" data-bs-toggle="dropdown" aria-expanded="false">
-                        Cantidad
-                    </button>
                     <ul class="dropdown-menu" aria-labelledby="cantidadDropdown${index}">
                         ${Array.from({length: 10}, (_, i) => `
                             <li><a class="dropdown-item" onclick="updateQuantity('cantidadSeleccionada${index}', ${i + 1})">${i + 1}</a></li>
@@ -139,12 +135,16 @@ document.addEventListener("DOMContentLoaded", function () {
                     </ul>
                     <p>Seleccionados: <span id="cantidadSeleccionada${index}">0</span></p>
                     <button class="btn btn-primary" onclick="addToCart(${index})">Agregar al carrito</button>
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="cantidadDropdown${index}" data-bs-toggle="dropdown" aria-expanded="false">
+                        Cantidad
+                    </button>
                 </div>
             </div>
         `;
         gallery.appendChild(item);
     });
 });
+
 function filterImages(category) {
     const images = document.querySelectorAll('.image');
     images.forEach(image => {
@@ -155,11 +155,13 @@ function filterImages(category) {
         }
     });
 }
+
 function updateQuantity(spanId, cantidad) {
     // Actualizar el valor del span con la cantidad seleccionada
     const cantidadSpan = document.getElementById(spanId);
     cantidadSpan.textContent = cantidad;
 }
+
 function addToCart(index) {
     const cantidadDropdownId = `cantidadDropdown${index}`;
     const cantidadSeleccionada = document.getElementById(`cantidadSeleccionada${index}`).textContent;
@@ -180,8 +182,15 @@ function addToCart(index) {
     // Obtener el carrito del almacenamiento local o crear uno nuevo si no existe
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    // Agregar el producto al carrito
-    cart.push(product);
+    // Verificar si el producto ya está en el carrito
+    const existingProductIndex = cart.findIndex(item => item.nombre === product.nombre);
+    if (existingProductIndex !== -1) {
+        // Si el producto ya está en el carrito, sumar la cantidad
+        cart[existingProductIndex].cantidad += product.cantidad;
+    } else {
+        // Si el producto no está en el carrito, agregarlo
+        cart.push(product);
+    }
 
     // Guardar el carrito en el almacenamiento local
     localStorage.setItem('cart', JSON.stringify(cart));
