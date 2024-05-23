@@ -4,6 +4,8 @@ body {
     padding: 0;
 }
 .titlePage{
+    background-color: #1a1818;
+    color: beige;
     text-align: center;
     font-size: 5rem;
     padding: 20px 0;
@@ -46,4 +48,8 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
+}
+
+.icons-redes {
+    margin: 10px;
 }
