@@ -1,0 +1,111 @@
+.sectionFormulario {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input, textarea, button {
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    width: 100%;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    background-color: #000000;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+button:hover {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 10px; /* Ajusta el margen entre el checkbox y el texto */
+    min-width: 30px; /* Ajusta el ancho mínimo del checkbox */
+    min-height: 30px; /* Ajusta la altura mínima del checkbox */
+}
+
+.checkbox-group input[type="checkbox"]::before {
+    width: 30px; /* Ajusta el ancho del checkbox */
+    height: 30px; /* Ajusta la altura del checkbox */
+    border: 2px solid #000; /* Ajusta el grosor y color del borde del checkbox */
+    border-radius: 5px; /* Ajusta el radio de borde del checkbox */
+}
+
+.checkbox-group input[type="checkbox"]:checked::before {
+    background-color: #000; /* Cambia el color de fondo cuando está seleccionado */
+}
+button {
+    min-width: 110px; /* Ajusta el ancho según sea necesario */
+    margin-left: 5px; /* Añade un margen entre el checkbox y el botón */
+}
+
+@media (max-width: 768px) {
+    form {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    form {
+        width: 100%;
+    }
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.icons-redes {
+    margin: 10px;
+}
